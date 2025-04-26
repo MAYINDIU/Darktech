@@ -1,10 +1,40 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { Card, Text } from 'react-native-paper';
+import ImageSlider from '@coder-shubh/react-native-image-slider';
 
-export default function index() {
+export default function Dashboard() {
+  const images = new Array(6).fill(
+    'https://cdn.pixabay.com/photo/2022/12/01/04/42/man-7628305_640.jpg',
+  );
   return (
+     
+    <View >
+
+   <View style={{marginBottom:50}}>
+   <ImageSlider
+    images={images}
+    imageHeight={430} // SAME as Card height
+
+    dotSize={8}
+    dotColor="#ccc"
+    activeDotColor="#0077FF"
+    showNavigationButtons={false}
+    autoSlideInterval={4000}
+    radius={5}
+    
+  />
+   </View>
+
+
+
+
+
+
     <View style={styles.container}>
+
+
+
       <Card style={styles.card}>
         <Card.Content style={styles.cardContent}>
           <Image style={{height:45,width:45}} source={require('../../assets/icons/teamwork.png')}/>
@@ -45,6 +75,7 @@ export default function index() {
         </Card.Content>
       </Card>
     </View>
+    </View>
   );
 }
 
@@ -54,6 +85,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',       // Wraps items to the next line
     justifyContent: 'space-between', // Or use 'space-around'
     padding: 10,
+    marginTop:102
   },
   card: {
     width: '31%',
